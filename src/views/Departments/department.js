@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
 import {Link, useParams} from 'react-router-dom'
 import { BsArrowLeft } from 'react-icons/bs';
 import { AiOutlinePlus, AiOutlineDelete } from 'react-icons/ai';
-import Avatar1 from '../assets/avatar1.png';
-import Avatar2 from '../assets/avatar2.png';
-import Avatar3 from '../assets/avatar3.png';
-import Avatar4 from '../assets/avatar4.png';
-import Avatar5 from '../assets/avatar5.png';
-import Customer from '../assets/customer.png';
 
 
 const Customers = [
@@ -52,81 +46,67 @@ const Department = () => {
 
     useEffect(() => {
     setDepartment(id.slice(1));
-    }, [])
-
-
-    const randomColor = () => {
-        let hex = Math.floor(Math.random() * 0xFFFFFF);
-        let color = "#" + hex.toString(16);
-      
-        return color;
-      }
+    }, [department])
     
 
     return (
-        <div>
-            <Sidebar/>
-            <Container>
-                <Navbar/>
-                <Section>
-                    <ArrowContainer to="/departments"><ArrowIcon/></ArrowContainer>
-                   <FlexBox>
-                        <DepartmentSummary>
-                            <h3>{department}</h3>
-                            <p>This dummy text is supposed to include a little description about the team name above</p>
-                        </DepartmentSummary>
-                        <Users>
-                           <ButtonContainer>
-                               <ImageStack>
-                                {AvatarStack.map((avatar)=>(
-                                <p >
-                                    {avatar.name[0].toUpperCase()}
-                                </p>
-                                ))}
-                            </ImageStack>
-                            <PlusIcon/>
-                           </ButtonContainer>
-                        </Users>
-                   </FlexBox>
+    <Section>
+        <ArrowContainer to="/departments"><ArrowIcon/></ArrowContainer>
+        <FlexBox>
+            <DepartmentSummary>
+                <h3>{department}</h3>
+                <p>This dummy text is supposed to include a little description about the team name above</p>
+            </DepartmentSummary>
+            <Users>
+                <ButtonContainer>
+                    <ImageStack>
+                    {AvatarStack.map((avatar)=>(
+                    <p >
+                        {avatar.name[0].toUpperCase()}
+                    </p>
+                    ))}
+                </ImageStack>
+                <PlusIcon/>
+                </ButtonContainer>
+            </Users>
+        </FlexBox>
 
-                   <NewCustomer>
-                        <StyledLink to ="/add-customer">Add New Customer</StyledLink>
-                    </NewCustomer>
+        <NewCustomer>
+            <StyledLink to={`/departments/:${department}/add-customer`}>Add New Customer</StyledLink>
+        </NewCustomer>
 
-                   <CustomersTable>
-                        <TableHead>
-                            <tr>
-                                <th></th>
-                                <th>Customer Name</th>
-                                <th>Phone number</th>
-                                <th>Email address</th>
-                                <th>Logged By</th>
-                                <th>Date</th>
-                                <th></th>
+        <CustomersTable>
+            <TableHead>
+                <tr>
+                    <th></th>
+                    <th>Customer Name</th>
+                    <th>Phone number</th>
+                    <th>Email address</th>
+                    <th>Logged By</th>
+                    <th>Date</th>
+                    <th></th>
 
-                            </tr>
-                        </TableHead>
-                        <TableBody>
-                            {Customers.map((customer)=>(
-                            <tr key={customer.id}>
-                                <td className='avatar'> 
-                                    <p>{customer.name[0].toUpperCase()}</p>
-                                </td>
-                                <td>{customer.name}</td>
-                                <td>{customer.phone}</td>
-                                <td>bolajiolayinka980@gmail.com</td>
-                                <td>Olasanmi Ezekiel</td>
-                                <td>24.03.2022</td>
-                                <td className='delete'><DeleteIcon/></td>
-                            </tr>
-                            ))}
-                        
-                        </TableBody>
-                   </CustomersTable>
-                    
-                </Section>
-            </Container>
-        </div>
+                </tr>
+            </TableHead>
+            <TableBody>
+                {Customers.map((customer)=>(
+                <tr key={customer.id}>
+                    <td className='avatar'> 
+                        <p>{customer.name[0].toUpperCase()}</p>
+                    </td>
+                    <td>{customer.name}</td>
+                    <td>{customer.phone}</td>
+                    <td>bolajiolayinka980@gmail.com</td>
+                    <td>Olasanmi Ezekiel</td>
+                    <td>24.03.2022</td>
+                    <td className='delete'><DeleteIcon/></td>
+                </tr>
+                ))}
+            
+            </TableBody>
+        </CustomersTable>
+        
+    </Section>
     );
 }
 

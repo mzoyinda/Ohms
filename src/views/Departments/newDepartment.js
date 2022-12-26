@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Sidebar from '../components/Sidebar';
-import {Link} from 'react-router-dom'
+import Sidebar from '../../components/Sidebar';
+import {Link} from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
 
 
@@ -12,21 +12,17 @@ const NewDepartment = () => {
             <Sidebar/>
             <Main>
                <Form>
-            <ArrowContainer to="/departments"><ArrowIcon/></ArrowContainer>
+               <ArrowContainer to="/departments"><ArrowIcon/></ArrowContainer>
               <Header>
-              <h2>Add New Customer</h2>
+              <h2>Create New Department</h2>
               </Header>
                 <div>
-                    <p>Customer Name</p>
+                    <p>Name</p>
                     <input type="text"/>
                 </div>
                 <div>
-                    <p>Email Address</p>
-                    <input type="email"/>
-                </div>
-                <div>
-                    <p>Phone Number</p>
-                    <input type="tel"  className='phone'/>
+                    <p>Description</p>
+                    <textarea name="description" cols="30" rows="8"></textarea>
                 </div>
                 <ButtonContainer>
                     <button>Add</button>
@@ -80,11 +76,7 @@ input{
     padding: 1rem;
     border: 1px solid #f8f8f8;
     background-color: #f8f8f8;
-    margin-bottom:2rem;
-}
-
-.phone{
-    margin-bottom:0;
+    margin-bottom:3rem;
 }
 
 input:focus, textarea:focus{

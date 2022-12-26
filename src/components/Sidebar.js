@@ -21,7 +21,7 @@ const Sidebar = () => {
                 </Menu>
                 <Links>
                     <StyledLink  to="/" ><BsGrid class="link-icon"/> Dashboard </StyledLink >
-                    <StyledLink  to="/departments"> <TbUsers class="link-icon"/> Department </StyledLink >
+                    <StyledLink  to="/departments"> <TbUsers class="link-icon"/> Departments </StyledLink >
                     <StyledLink  to="/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
                 </Links>
                 <MobileLinks show={display} >

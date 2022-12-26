@@ -32,7 +32,7 @@ border-bottom: 1px solid var(--mainPurple);
 justify-content: center;
 align-items: center;
 background-color:  #F8F8F8;
-padding: 1.2rem;
+padding: 1rem;
 @media screen and (max-width: 680px) {
       display: none;
 }
