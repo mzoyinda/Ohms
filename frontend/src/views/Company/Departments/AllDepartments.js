@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 // import { AiOutlinePlus } from 'react-icons/ai';
 import Avatar1 from '../../../assets/avatar1.png';
 import Avatar2 from '../../../assets/avatar2.png';
@@ -39,14 +39,17 @@ const data = [
 ]
 
 const AllDepartments = () => {
+    const Navigate = useNavigate();
+
+
   return (
     <>
      <ButtonContainer>
-        <StyledLink to ="/company/add-department">Add New Department</StyledLink>
+        <StyledLink to ="/company/add-dept">Add New Department</StyledLink>
     </ButtonContainer>
     <CardSection>
         {data.map((department) => (
-        <Card>
+        <Card onClick={()=> Navigate(`/company/depts/:${department.name}`)}>
             <CardHeader>{department.name}</CardHeader>
             <CardBody>This Dummy text is supposed to include a little description about the team name above</CardBody>
             <CardFooter> 
@@ -72,7 +75,7 @@ padding: 2rem;
 `
 const StyledLink = styled(Link)`
 text-decoration: none;
-background-color: var(--mainBlue);
+background-color: var(--mainGreen);
 padding: 1rem 2rem;
 font-weight: 500;
 font-size: 0.8rem;
@@ -90,6 +93,9 @@ background-color: white;
 padding: 1rem;
 margin: 1rem;
 padding-bottom: 0;
+:hover{
+    cursor: pointer;
+}
 @media screen and (max-width: 680px) {
     width:90%;
 }
@@ -121,7 +127,8 @@ img{
 `
 const PlusIcon = styled(AiOutlinePlus)`
 background-color: var(--mainBlue);
-color: white;
+color: var(--mainOrange);
+border:1px solid var(--mainOrange);
 padding: 10px;
 border-radius: 50%;
 `

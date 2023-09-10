@@ -23,9 +23,9 @@ function App() {
 
           {/* Departments */}
           <Route path="/company" element={<Dashboard />} >
-          <Route element={<Charts/>} index/>
+            <Route element={<Charts />} index />
             <Route path="depts" element={<Departments />}>
-              <Route element={<AllDepartments />} index/>
+              <Route element={<AllDepartments />} index />
               <Route path=":id" element={<Department />} />
               <Route path=":id/add-customer" element={<NewCustomer />} />
             </Route>

@@ -80,6 +80,7 @@ const Container = styled.div`
       color: #808080;
     }
   }
+  
   .active,
   :focus {
     color: #202020;
@@ -101,6 +102,7 @@ const Container = styled.div`
       border-radius: 10px;
       &:hover {
         box-shadow: 0px 2px 10px 5px white;
+        cursor: pointer;
       }
     }
     a + a, a + button {

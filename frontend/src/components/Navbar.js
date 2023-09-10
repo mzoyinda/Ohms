@@ -2,8 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import Admin from '../assets/admin.png';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const Navigate = useNavigate();
+
   return (
    <StyledNav>
     
@@ -14,7 +18,7 @@ const Navbar = () => {
             </div>
             <Avatar src={Admin} />
         </User>
-        <button>Logout</button>
+        <button onClick={()=> Navigate("/login")}>Logout</button>
    </StyledNav>
   )
 }
@@ -22,7 +26,7 @@ const Navbar = () => {
 const StyledNav = styled.nav`
 width: 100%;
 display: flex;
-gap: 20px;
+gap: 40px;
 height: 96px;
 box-sizing: border-box;
 border-bottom: 2px solid var(--mainOrange);
@@ -30,6 +34,21 @@ justify-content: flex-end;
 align-items: center;
 /* background-color: var(--mainOrange); */
 padding: 1rem;
+
+button {
+      /* width: 156px; */
+      background-color: var(--mainGreen);
+      color: white;
+      font-size: 14px;
+      padding: 13px 30px;
+      margin-right: 20px;
+      border-radius: 10px;
+      border: transparent;
+      &:hover {
+        box-shadow: 0px 2px 10px 5px white;
+        cursor: pointer;
+      }
+    }
 @media screen and (max-width: 680px) {
       display: none;
 }

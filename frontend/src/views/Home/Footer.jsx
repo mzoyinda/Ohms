@@ -113,10 +113,10 @@ const Container = styled.footer`
           padding: 8px;
           border-radius: 50%;
           font-size: 1.3rem;
-          color: #1a1a1a;
+          color:  #0F162C;
           :hover{
             font-size: 1.35rem;
-            color:  #0F162C;
+            color:var(--mainGreen);
           }
         }
       }

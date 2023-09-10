@@ -192,7 +192,8 @@ p{
 `;
 
 const PlusIcon = styled(AiOutlinePlus)`
-background-color: var(--mainBlue);
+background-color: var(--mainGreen);
+border: 1px solid var(--mainGreen);
 color: white;
 padding: 10px;
 border-radius: 50%;
@@ -204,7 +205,7 @@ padding: 2rem;
 `
 const StyledLink = styled(Link)`
 text-decoration: none;
-background-color: var(--mainBlue);
+background-color: var(--mainGreen);
 padding: 1rem 2rem;
 font-weight: 500;
 font-size: 0.8rem;
