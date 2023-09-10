@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 // import brand from "../../assets/brand.png";
 import { FiMenu } from "react-icons/fi";
@@ -16,6 +16,8 @@ const Navbar = () => {
   const { pathname } = location;
 
   const splitLocation = pathname.split("/");
+
+  const Navigate = useNavigate();
 
   useEffect(() => {
     setIsActive(splitLocation[1]);
@@ -48,9 +50,9 @@ const Navbar = () => {
         <div className="mobile">
           <nav className="navlinks">
             <a href="/login">Login</a>
-            <a className="ohm" href="/create-ohm">
+            <button className="ohm" onClick={()=> Navigate("/create-ohm")} >
               Create Ohm
-            </a>
+            </button>
           </nav>
         </div>
       ) : (
@@ -92,7 +94,7 @@ const Container = styled.div`
 
     .ohm {
       /* width: 156px; */
-      background-color: #ed8850;
+      background-color: var(--mainGreen);
       color: white;
       font-size: 14px;
       padding: 15px 20px;
@@ -101,7 +103,7 @@ const Container = styled.div`
         box-shadow: 0px 2px 10px 5px white;
       }
     }
-    a + a {
+    a + a, a + button {
       margin-left: 25px;
     }
 
@@ -186,7 +188,7 @@ const Container = styled.div`
       justify-content: center;
       align-items: center;
       margin-top: 37px;
-      a + a {
+      a + a, a + button {
         margin-top: 25px;
       }
     }

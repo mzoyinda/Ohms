@@ -49,7 +49,7 @@ const Department = () => {
 
     return (
     <Section>
-        <ArrowContainer to="/ohm/departments"><ArrowIcon/></ArrowContainer>
+        <ArrowContainer to="/company/depts"><ArrowIcon/></ArrowContainer>
         <FlexBox>
             <DepartmentSummary>
                 <h3>{department}</h3>
@@ -70,7 +70,7 @@ const Department = () => {
         </FlexBox>
 
         <NewCustomer>
-            <StyledLink to={`/ohm/departments/:${department}/add-customer`}>Add New Customer</StyledLink>
+            <StyledLink to={`/company/depts/:${department}/add-customer`}>Add New Customer</StyledLink>
         </NewCustomer>
 
         <CustomersTable>

@@ -21,14 +21,14 @@ const Sidebar = () => {
                     <MobileMenu onClick={()=> setDisplay(!display)}/>
                 </Menu>
                 <Links>
-                    <StyledLink  to="/ohm" ><BsGrid class="link-icon"/> Dashboard </StyledLink >
-                    <StyledLink  to="/ohm/departments"> <TbUsers class="link-icon"/> Departments </StyledLink >
-                    <StyledLink  to="/ohm/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
+                    <StyledLink  to="/company" ><BsGrid class="link-icon"/> Dashboard </StyledLink >
+                    <StyledLink  to="/company/depts"> <TbUsers class="link-icon"/> Departments </StyledLink >
+                    <StyledLink  to="/company/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
                 </Links>
                 <MobileLinks show={display} >
-                    <StyledLink  to="/ohm/"><BsGrid class="link-icon"/>  Dashboard </StyledLink >
-                    <StyledLink  to="/ohm/departments"> <TbUsers class="link-icon"/>  Departments </StyledLink >
-                    <StyledLink  to="/ohm/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
+                    <StyledLink  to="/company/"><BsGrid class="link-icon"/>  Dashboard </StyledLink >
+                    <StyledLink  to="/company/depts"> <TbUsers class="link-icon"/>  Departments </StyledLink >
+                    <StyledLink  to="/company/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
                 </MobileLinks>
            </div>
            <Logout to="/login" show={display}>
@@ -50,7 +50,8 @@ text-align:center;
 padding: 2rem 0;
 width:18vw;
 height:100vh;
-background-color:#219ebc;
+/* background-color:#219ebc; */
+background-color:var(--mainGreen);
 
 @media screen and (max-width: 680px) {
     position:relative;

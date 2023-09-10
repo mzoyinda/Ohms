@@ -6,7 +6,7 @@ import { BsArrowLeft } from "react-icons/bs";
 const NewDepartment = () => {
   return (
     <Form>
-      <ArrowContainer to="/ohm/departments">
+      <ArrowContainer to="/company/depts">
         <ArrowIcon />
       </ArrowContainer>
       <Header>

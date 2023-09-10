@@ -219,7 +219,7 @@ height: 100vh;
   
   span {
     font-size: 40px;
-    color: #410b01;
+    color: #277da1;
     margin-bottom: 25px;
     display: block;
   }
@@ -238,7 +238,7 @@ height: 100vh;
 
     a{
       font-weight: 600;
-      color:#410b01;
+      color:#277da1;
     }
   }
 } 

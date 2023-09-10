@@ -42,7 +42,7 @@ const AllDepartments = () => {
   return (
     <>
      <ButtonContainer>
-        <StyledLink to ="/ohm/add-department">Add New Department</StyledLink>
+        <StyledLink to ="/company/add-department">Add New Department</StyledLink>
     </ButtonContainer>
     <CardSection>
         {data.map((department) => (
@@ -57,7 +57,7 @@ const AllDepartments = () => {
                 <img src={Avatar4} alt="avatar" />
                 <img src={Avatar5} alt="avatar" />
                 </ImageStack>
-                <Link to={`/ohm/departments/:${department.name}`}><PlusIcon/></Link>
+                <Link to={`/company/depts/:${department.name}`}><PlusIcon/></Link>
             </CardFooter>
         </Card>
         ))}

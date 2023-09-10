@@ -16,7 +16,7 @@ const NewCustomer = () => {
 
     return (
         <Form>
-            <ArrowContainer to={`/ohm/departments/:${department}`}>
+            <ArrowContainer to={`/company/depts/:${department}`}>
                 <ArrowIcon/></ArrowContainer>
             <Header>
             <h2>Add New {department} Customer</h2>
