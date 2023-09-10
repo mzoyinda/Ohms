@@ -13,9 +13,8 @@ body{
 
 :root{
   --mainWhite:#FFFFFF;
-  --mainPurple:#30235B;
-  --mainBlue:#0047F4;
+  --lightOrange:#FCF4EA;
   --fontColor:#949494;;
   --mainBlack:#212529;
-  --mainOrange:#F2994A;
+  --mainOrange:#ED8850;
 }

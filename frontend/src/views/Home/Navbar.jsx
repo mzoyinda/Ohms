@@ -26,12 +26,14 @@ const Navbar = () => {
     <Container>
       <div className="desktop">
         <a href="/" className="brand">
-        <h1>Ohms</h1>
+          <h1>Ohms</h1>
         </a>
         <div>
           <nav className="nav__links">
             <a href="/login">Login</a>
-            <a className="ohm" href="/create-ohm">Create Ohm</a>
+            <a className="ohm" href="/create-ohm">
+              Create Ohm
+            </a>
           </nav>
           <div className="menu__icon">
             {isOpen ? (
@@ -46,7 +48,9 @@ const Navbar = () => {
         <div className="mobile">
           <nav className="navlinks">
             <a href="/login">Login</a>
-            <a className="ohm" href="/create-ohm">Create Ohm</a>
+            <a className="ohm" href="/create-ohm">
+              Create Ohm
+            </a>
           </nav>
         </div>
       ) : (
@@ -58,7 +62,7 @@ const Navbar = () => {
 
 const Container = styled.div`
   padding: 17px 30px;
-  background: var(--white-black-white, #FFF);
+  background: var(--white-black-white, #fff);
   box-shadow: 0px 5px 15px rgba(153, 153, 153, 0.05);
   position: sticky;
   top: 0;
@@ -76,7 +80,7 @@ const Container = styled.div`
   }
   .active,
   :focus {
-   color: #202020;
+    color: #202020;
     font-weight: 600;
   }
 
@@ -86,44 +90,43 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    .ohm{
+    .ohm {
       /* width: 156px; */
-      background-color: #ED8850;
+      background-color: #ed8850;
       color: white;
       font-size: 14px;
-    padding: 15px 20px;
-    border-radius: 10px;
-&:hover{
-  box-shadow: 0px 2px 10px 5px white;
-}
+      padding: 15px 20px;
+      border-radius: 10px;
+      &:hover {
+        box-shadow: 0px 2px 10px 5px white;
+      }
     }
     a + a {
       margin-left: 25px;
     }
 
-    .brand{
-      color: #ED8850;
-    h1 {
-      font-size: 20px !important;
-      font-weight: 700;
-      line-height: 28px;
-      text-align: center;
-    }
-    :hover {
-      cursor: pointer;
-      color: #ED8850 !important;
-    }
-    img {
-      width: 96px;
-      object-fit: cover;
-    }
+    .brand {
+      color: #ed8850;
+      h1 {
+        font-size: 20px !important;
+        font-weight: 700;
+        line-height: 28px;
+        text-align: center;
+      }
+      :hover {
+        cursor: pointer;
+        color: #ed8850 !important;
+      }
+      img {
+        width: 96px;
+        object-fit: cover;
+      }
     }
     .menu__icon {
       display: none;
       @media (max-width: 768px) {
         display: block;
         svg {
-       
           width: 28px;
           height: 28px;
           :hover {
@@ -137,25 +140,23 @@ const Container = styled.div`
       }
     }
 
-
-
     @media (max-width: 768px) {
       .nav__links {
         display: none;
         height: 80%;
       }
-      img{
-        width:109px;
+      img {
+        width: 109px;
       }
     }
   }
 
   @media (min-width: 768px) {
     padding: 32px 63px 13px 63px;
-    }
-    a{
-      font-size: 16px;
-    }
+  }
+  a {
+    font-size: 16px;
+  }
 
   //maximum screen size
   @media (min-width: 1500px) {
@@ -171,9 +172,9 @@ const Container = styled.div`
 
   /* small screen */
   .mobile {
-    padding-bottom:20px;
-    border-bottom:1px solid rgba(255, 255, 255, 0.15);
-   
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
     a {
       color: #000;
       font-size: 16px;

@@ -8,11 +8,11 @@ const LandingPage = () => {
 }
 
 const Container = styled.main`
-height: 70vh;
+height: 60vh;
 /* padding: 100px; */
 width: 100%;
 text-align: center;
-margin: 100px auto;
+margin: 170px auto;
 `;
 
 export default LandingPage

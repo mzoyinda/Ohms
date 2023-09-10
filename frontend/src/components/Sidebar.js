@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { CgMenuGridO, CgFileDocument } from 'react-icons/cg';
 import {BsGrid} from 'react-icons/bs';
 import {TbUsers} from 'react-icons/tb';
-import Logo from '../assets/logo.png';
 import icon4 from '../assets/logout-icon.png';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -16,18 +15,20 @@ const Sidebar = () => {
         <Container>
            <div>
                 <Menu>
-                    <StandageLogo src={Logo} />
+                    <StandageLogo >
+                        <h1>Ohms</h1>
+                        </StandageLogo>
                     <MobileMenu onClick={()=> setDisplay(!display)}/>
                 </Menu>
                 <Links>
-                    <StyledLink  to="/" ><BsGrid class="link-icon"/> Dashboard </StyledLink >
-                    <StyledLink  to="/departments"> <TbUsers class="link-icon"/> Departments </StyledLink >
-                    <StyledLink  to="/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
+                    <StyledLink  to="/ohm" ><BsGrid class="link-icon"/> Dashboard </StyledLink >
+                    <StyledLink  to="/ohm/departments"> <TbUsers class="link-icon"/> Departments </StyledLink >
+                    <StyledLink  to="/ohm/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
                 </Links>
                 <MobileLinks show={display} >
-                    <StyledLink  to="/"><BsGrid class="link-icon"/>  Dashboard </StyledLink >
-                    <StyledLink  to="/departments"> <TbUsers class="link-icon"/>  Departments </StyledLink >
-                    <StyledLink  to="/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
+                    <StyledLink  to="/ohm/"><BsGrid class="link-icon"/>  Dashboard </StyledLink >
+                    <StyledLink  to="/ohm/departments"> <TbUsers class="link-icon"/>  Departments </StyledLink >
+                    <StyledLink  to="/ohm/audit-trial"> <CgFileDocument class="link-icon"/> Audit Trial </StyledLink >
                 </MobileLinks>
            </div>
            <Logout to="/login" show={display}>
@@ -49,10 +50,8 @@ text-align:center;
 padding: 2rem 0;
 width:18vw;
 height:100vh;
-background-color: var(--mainPurple);
-.active{
-    color: var(--mainOrange) !important;
-}
+background-color:#219ebc;
+
 @media screen and (max-width: 680px) {
     position:relative;
     width: 100%;
@@ -62,7 +61,7 @@ background-color: var(--mainPurple);
 `;
 
 const Menu = styled.div`
- 
+ margin-bottom: 30px;
 @media screen and (max-width: 680px) {
     display :flex;
     justify-content: space-between;
@@ -75,26 +74,42 @@ const Menu = styled.div`
 const MobileMenu = styled(CgMenuGridO)`
 display:none;
 font-size: 2rem;
-color:#CACACA;
+color:var(--lightOrange);
 @media screen and (max-width: 680px) {
     display: block;
 }
 `
 
-const StandageLogo = styled.img`
-width: 60%;
-object-fit:contain;
-margin-bottom: 3.5rem;
-@media screen and (max-width: 680px) {
-    max-width: 120px;
-    margin-bottom: 0;
-}
+const StandageLogo = styled.div`
+  color: var(--lightOrange);
+      h1 {
+        font-size: 20px !important;
+        font-weight: 700;
+        line-height: 28px;
+        text-align: center;
+      }
+      :hover {
+        cursor: pointer;
+        color: var(--lightOrange) !important;
+      }
+
 `;
 
 const Links = styled.div`
 display:flex;
 flex-direction: column;
 margin: 0 auto;
+
+/* .active{
+    width: 10vw;
+    margin-right: 5px;
+    color: var(--mainOrange);
+    justify-self: flex-end;
+    align-self: flex-end;
+    background-color: var(--lightOrange) !important;
+    font-weight: 600;
+    padding: 10px 0;
+} */
 
 @media screen and (max-width: 680px) {
     margin: 0 auto;  
@@ -114,7 +129,7 @@ transition: all 0.5s ease-out;
 const StyledLink = styled(NavLink)`
 font-size: 0.8rem;
 text-decoration: none;
-color:#CACACA;
+color:var(--lightOrange);
 margin-top: 3rem;
 width: 100%;
 
@@ -130,8 +145,12 @@ margin-left: -0.5rem;
 const Logout = styled(Link)`
 display: flex;
 justify-content: center;
+align-items: center;
 text-decoration: none;
-color:#3CB54A;
+background-color: var(--lightOrange);
+width: 10vw;
+padding: 10px;
+/* color:var(--lightOrange); */
 font-size: 0.9rem;
 
 img{

@@ -1,105 +1,209 @@
-import React from 'react';
-import styled from 'styled-components';
+import { Formik } from "formik";
+import * as Yup from "yup";
+import { useState } from "react";
+import axios from "axios";
+import Cookies from "universal-cookie";
+import Swal from 'sweetalert2'
+import styled from "styled-components";
 
 
+const cookies = new Cookies();
+
+// Creating schema
+const schema = Yup.object().shape({
+  email: Yup.string()
+    .required("Email is a required field")
+    .email("Invalid email format"),
+  password: Yup.string()
+    .required("Password is a required field")
+});
 
 const Login = () => {
-    return (
+  const [Loading, setLoading] = useState(false);
+
+  return (
+    <FormContainer>
+
+      <Formik
+        validationSchema={schema}
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values) => {
+          setLoading(true);
+            // set configurations
+        const configuration = {
+          method: "post",
+          // url: "https://coffetip.onrender.com/login",
+          data: values,
+        };
+
+            // make the API call
+        axios(configuration)
+        .then((result) => {
+          setLoading(false);
+          // set the cookie
+          cookies.set("TOKEN", result.data.token, {
+            path: "/",
+          });
+            // set the cookie
+            cookies.set("WALLET", result.data.wallets, {
+              path: "/",
+            });
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Login Successful',
+            showConfirmButton: false
+          })
+
+          // redirect user to the dashboard page
+          window.location.href = "/dashboard";
+        })
+        .catch((error) => {
+          error = new Error();
+          setLoading(false);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'User does not exist!'
+          })
+        });
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+        }) => (
+          <div className="login">
+            <div className="form">
+
+              <form noValidate onSubmit={handleSubmit}>
+                <span>Login</span>
         
-            <Main>
-               <Form>
-              <Header>
-              <h2>Login</h2>
-              </Header>
-                <div>
-                    <p>Email Address</p>
-                    <input type="email"/>
-                </div>
-                <div>
-                <p>Password</p>
-                    <input type="password"/>
-                </div>
-                <ButtonContainer>
-                    <button>Add</button>
-                </ButtonContainer>
-               </Form>
-            </Main>
-    );
+               <p className="error">
+                  {errors.email && touched.email && errors.email}
+                </p>
+
+                <input
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  placeholder="Enter email id / username"
+                  className="form-control inp_text"
+                  id="email"
+                />
+             
+                <p className="error">
+                  {errors.password && touched.password && errors.password}
+                </p>
+                <input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                  placeholder="Enter password"
+                  className="form-control"
+                />
+                
+                <button type="submit">{Loading ? "Loading..." : "Login"}</button>
+              </form>
+              <p className="account">Dont have an account? <a href="/create-ohm">Sign Up</a></p>
+            </div>
+          </div>
+        )}
+      </Formik>
+    </FormContainer>
+  );
 }
 
-const Main = styled.main`
-background-color: white;
-display:flex;
-width:100%;
+const FormContainer = styled.main`
+background-color: #FCF4EA;
 height: 100vh;
-@media screen and (max-width: 680px) {
-    margin-left: 0;
-}
-`
 
-const Header = styled.div`
-font-weight: 700;
-font-size: 1rem;
-margin-bottom: 3rem;
-h2{
-    border-bottom: 1px solid black;
-    padding-bottom: 1rem;
-}
-`;
 
-const Form = styled.div`
-margin: auto;
-width: 30%;
-p{
-    color: var(--fontColor);
-    margin-bottom: 0.3rem;
-}
-input{
-    outline: none;
-    width: 95%;
-    padding: 1rem;
-    border: 1px solid #f8f8f8;
-    background-color: #f8f8f8;
-    margin-bottom:2rem;
-}
-
-input:focus, textarea:focus{
-    outline: none;
-    box-shadow: 0px 0px 4px 0px #B5B5B5;
+.login {
+  width: 420px;
+  padding: 8% 0 0;
+  margin: auto;
 }
 
 
-textarea{
+.form {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 15% auto;
+  padding: 45px;
+  text-align: center;
+ 
+  input {
+    outline: 0;
+    background: #DEDBD6;
     width: 100%;
-    padding: 1rem;
-    border: 1px solid #f8f8f8;
-    background-color: #f8f8f8;
-    resize: none;
-}
-
-@media screen and (max-width: 680px) {
-    width:80%;
-}
-`;
-
-const ButtonContainer = styled.div`
-display: block;
-text-align: right;
-margin-top:1rem;
-button{
-    background-color: var(--mainBlue);
-    padding: 1rem 5.5rem;
+    border: 0;
+    border-radius: 5px;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    
+  }
+  
+  button {
+    text-transform: uppercase;
+    outline: 0;
+    background: #ED8850;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
     cursor: pointer;
-    border:none;
-    color: white;
-}
-@media screen and (max-width: 680px) {
-    button{
-        padding: 1rem 3rem;
+    
+    &:active {
+      background: #b08968;
     }
-}
-`
+  }
+  
+  span {
+    font-size: 40px;
+    color: #410b01;
+    margin-bottom: 25px;
+    display: block;
+  }
+  
+  p.error {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 14px;
+    color: red;
+  }
+
+  p.account{
+    margin-top: 15px;
+    font-size: 14px;
+
+    a{
+      font-weight: 600;
+      color: #410b01;
+    }
+  }
+} 
 
 
+
+`;
 
 export default Login;

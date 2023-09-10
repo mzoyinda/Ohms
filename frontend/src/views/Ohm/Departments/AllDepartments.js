@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
 import {Link} from 'react-router-dom';
 // import { AiOutlinePlus } from 'react-icons/ai';
-import Avatar1 from '../../assets/avatar1.png';
-import Avatar2 from '../../assets/avatar2.png';
-import Avatar3 from '../../assets/avatar3.png';
-import Avatar4 from '../../assets/avatar4.png';
-import Avatar5 from '../../assets/avatar5.png';
+import Avatar1 from '../../../assets/avatar1.png';
+import Avatar2 from '../../../assets/avatar2.png';
+import Avatar3 from '../../../assets/avatar3.png';
+import Avatar4 from '../../../assets/avatar4.png';
+import Avatar5 from '../../../assets/avatar5.png';
 
 
 const data = [
@@ -42,7 +42,7 @@ const AllDepartments = () => {
   return (
     <>
      <ButtonContainer>
-        <StyledLink to ="/add-department">Add New Department</StyledLink>
+        <StyledLink to ="/ohm/add-department">Add New Department</StyledLink>
     </ButtonContainer>
     <CardSection>
         {data.map((department) => (
@@ -57,7 +57,7 @@ const AllDepartments = () => {
                 <img src={Avatar4} alt="avatar" />
                 <img src={Avatar5} alt="avatar" />
                 </ImageStack>
-                <Link to={`/departments/:${department.name}`}><PlusIcon/></Link>
+                <Link to={`/ohm/departments/:${department.name}`}><PlusIcon/></Link>
             </CardFooter>
         </Card>
         ))}

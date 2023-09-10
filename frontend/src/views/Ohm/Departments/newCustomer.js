@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Sidebar from '../../components/Sidebar';
 import {Link, useParams} from 'react-router-dom'
 import { BsArrowLeft } from 'react-icons/bs';
 
@@ -17,7 +16,7 @@ const NewCustomer = () => {
 
     return (
         <Form>
-            <ArrowContainer to={`/departments/:${department}`}>
+            <ArrowContainer to={`/ohm/departments/:${department}`}>
                 <ArrowIcon/></ArrowContainer>
             <Header>
             <h2>Add New {department} Customer</h2>

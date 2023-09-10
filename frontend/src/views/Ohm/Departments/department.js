@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Navbar from '../../components/Navbar';
-import Sidebar from '../../components/Sidebar';
 import {Link, useParams} from 'react-router-dom'
 import { BsArrowLeft } from 'react-icons/bs';
 import { AiOutlinePlus, AiOutlineDelete } from 'react-icons/ai';
@@ -51,7 +49,7 @@ const Department = () => {
 
     return (
     <Section>
-        <ArrowContainer to="/departments"><ArrowIcon/></ArrowContainer>
+        <ArrowContainer to="/ohm/departments"><ArrowIcon/></ArrowContainer>
         <FlexBox>
             <DepartmentSummary>
                 <h3>{department}</h3>
@@ -72,7 +70,7 @@ const Department = () => {
         </FlexBox>
 
         <NewCustomer>
-            <StyledLink to={`/departments/:${department}/add-customer`}>Add New Customer</StyledLink>
+            <StyledLink to={`/ohm/departments/:${department}/add-customer`}>Add New Customer</StyledLink>
         </NewCustomer>
 
         <CustomersTable>
