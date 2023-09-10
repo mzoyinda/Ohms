@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
 import { BsThreeDots } from 'react-icons/bs';
 
 import Chart from "react-apexcharts";

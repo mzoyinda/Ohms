@@ -1,5 +1,5 @@
 {
-  "name": "customer-db",
+  "name": "ohms",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.6.1",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
     "react-spring": "^9.0.0-rc.3",
     "styled-components": "^5.3.5",
@@ -23,8 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-    "compilerOptions": {
-      "baseUrl": "src"
+  "compilerOptions": {
+    "baseUrl": "src"
   },
   "eslintConfig": {
     "extends": [

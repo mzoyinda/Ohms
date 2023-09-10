@@ -2,19 +2,20 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./views/Dashboard";
 import Departments from "./views/Departments";
-import Audit from "./views/Audit";
+import Audit from "./views/Dashboard/Audit";
 import Department from "./views/Departments/department";
 import NewDepartment from "./views/Departments/newDepartment";
 import NewCustomer from "./views/Departments/newCustomer";
 import Login from "./views/Login";
 import AllDepartments from "./views/Departments/AllDepartments";
+import Home from "./views/Home";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Dashboard />} exact />
+          <Route path="/" element={<Home/>} exact />
           <Route path="login" element={<Login />} />
 
           {/* Departments */}

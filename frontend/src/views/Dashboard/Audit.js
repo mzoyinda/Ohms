@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
 import { BsCalendar3 } from 'react-icons/bs';
-import Avatar1 from '../assets/avatar1.png';
-import Avatar2 from '../assets/avatar2.png';
-import Avatar3 from '../assets/avatar3.png';
-import Avatar4 from '../assets/avatar4.png';
-import Avatar5 from '../assets/avatar5.png';
+import Avatar1 from '../../assets/avatar1.png';
+import Avatar2 from '../../assets/avatar2.png';
+import Avatar3 from '../../assets/avatar3.png';
+import Avatar4 from '../../assets/avatar4.png';
+import Avatar5 from '../../assets/avatar5.png';
 
 
 const audits = [
