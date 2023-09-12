@@ -28,6 +28,7 @@ const Container = styled.main`
     height: 60vh;
     /* padding: 100px; */
     width: 100%;
+
     text-align: center;
     margin: 170px auto;
     display: flex;
@@ -40,12 +41,46 @@ const Container = styled.main`
     }
 
     .text-box {
+        padding: 0 50px;
         text-align: left;
+    }
+
+    h1 {
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        margin-bottom: 1em;
+        line-height: 1.5;
+    }
+
+    button {
+        outline: 0;
+        background-color: #ed8850;
+        border: 1px solid #ed8850;
+        color: #fff;
+        font-family: 'Noto Sans', sans-serif;
+        padding: 15px 20px;
+        border-radius: 10px;
     }
 
     .image-box img {
         display: block;
         width: 100%;
+    }
+
+    @media (max-width: 991px) {
+        flex-direction: column-reverse;
+        margin-top: 450px;
+
+        .text-box,
+        .image-box {
+            width: 100%;
+        }
+
+        .text-box {
+            padding: 0px;
+        }
     }
 `;
 
