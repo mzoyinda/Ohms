@@ -29,15 +29,16 @@ const SignUp = () => {
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
       <Formik
         validationSchema={schema}
-        initialValues={{ email: "", name: "", password: "" }}
+        initialValues={{ email: "", name: "", password: "", role:"admin" }}
         onSubmit={(values) => {
           setLoading(true);
     // set configurations
     const configuration = {
       method: "post",
-      // url: "https://coffetip.onrender.com/register",
+      url: "http://localhost:5001/admin/register",
       data: values,
     };
+    console.log(values)
 
     // make the API call
     axios(configuration)
@@ -86,7 +87,7 @@ const SignUp = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.name}
-                  placeholder="Enter organization name"
+                  placeholder="Enter Admin name"
                   className="form-control inp_text"
                   id="name"
                 />
@@ -101,25 +102,11 @@ const SignUp = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  placeholder="organization email address"
+                  placeholder="Admin email address"
                   className="form-control inp_text"
                   id="email"
                 />
-
-                {/* <p className="error">
-                  {errors.phone && touched.phone && errors.phone}
-                </p> */}
-
-                {/* <input
-                  type="phone"
-                  name="phone"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.phone}
-                  placeholder="Phone number e.g: +234... "
-                  className="form-control"
-                /> */}
-
+{/* 
                 <p className="error">
                   {errors.password && touched.password && errors.password}
                 </p>
@@ -148,13 +135,13 @@ const SignUp = () => {
                   value={values.confirmpassword}
                   placeholder="Confirm password"
                   className="form-control"
-                />
+                /> */}
 
                 <button type="submit">{Loading ? "Loading..." : "Signup"}</button>
               </form>
-              <p className="account">
+              {/* <p className="account">
                 Already have an account? <a href="/login">Log In</a>
-              </p>
+              </p> */}
             </div>
           </div>
         )}

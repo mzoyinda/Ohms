@@ -32,7 +32,7 @@ const Login = () => {
             // set configurations
         const configuration = {
           method: "post",
-          // url: "https://coffetip.onrender.com/login",
+          url: "http://localhost:5001/login",
           data: values,
         };
 
@@ -44,10 +44,7 @@ const Login = () => {
           cookies.set("TOKEN", result.data.token, {
             path: "/",
           });
-            // set the cookie
-            cookies.set("WALLET", result.data.wallets, {
-              path: "/",
-            });
+          
           Swal.fire({
             position: 'top',
             icon: 'success',
@@ -56,7 +53,7 @@ const Login = () => {
           })
 
           // redirect user to the dashboard page
-          window.location.href = "/dashboard";
+          window.location.href = "/company";
         })
         .catch((error) => {
           error = new Error();

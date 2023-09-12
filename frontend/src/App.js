@@ -9,21 +9,31 @@ import NewCustomer from "./views/Company/Departments/newCustomer";
 import Login from "./views/Login";
 import AllDepartments from "./views/Company/Departments/AllDepartments";
 import Home from "./views/Home";
-import SignUp from "./views/SignUp";
+import SignUp from "./views/CompanySignup";
 import Charts from "./views/Company/Dashboard";
+import RegisterAdmin from "./views/AdminSignup.js";
+import ManageAdmin from "./views/ManageAdmin";
+import { AuthContext } from "./AuthContext";
+import { useState } from "react";
+
 
 function App() {
+  const [user, setUser] = useState("admin");
+
+
   return (
     <div className="App">
+      <AuthContext.Provider value={{user}}>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} exact />
           <Route path="login" element={<Login />} />
-          <Route path="create-Company" element={<SignUp />} />
+          <Route path="create-ohm" element={<SignUp />} />
 
-          {/* Departments */}
+          {/* Company */}
           <Route path="/company" element={<Dashboard />} >
             <Route element={<Charts />} index />
+            <Route path="admin/register" element={<RegisterAdmin />} />
             <Route path="depts" element={<Departments />}>
               <Route element={<AllDepartments />} index />
               <Route path=":id" element={<Department />} />
@@ -31,9 +41,11 @@ function App() {
             </Route>
             <Route path="add-dept" element={<NewDepartment />} />
             <Route path="audit-trial" element={<Audit />} />
+            <Route path="manage-admin" element={<ManageAdmin />} />
           </Route>
         </Routes>
       </Router>
+      </AuthContext.Provider>
     </div>
   );
 }

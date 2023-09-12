@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { CgMenuGridO, CgFileDocument } from "react-icons/cg";
+import { GrUserManager } from "react-icons/gr";
 import { BsGrid } from "react-icons/bs";
 import { TbUsers } from "react-icons/tb";
 import { NavLink, Link, useLocation } from "react-router-dom";
@@ -40,18 +41,24 @@ const Sidebar = () => {
           {" "}
           <CgFileDocument class="link-icon" /> Audit Trial{" "}
         </StyledLink>
+        <StyledLink to="/company/manage-admin">
+          <GrUserManager class="link-icon" /> Manage Admin
+        </StyledLink>
       </Links>
       <MobileLinks show={display}>
-        <StyledLink to="/company/">
+        <StyledLink to="/company">
           <BsGrid class="link-icon" /> Dashboard{" "}
         </StyledLink>
         <StyledLink to="/company/depts">
           {" "}
           <TbUsers class="link-icon" /> Departments{" "}
         </StyledLink>
-        <StyledLink to="/company/audit-trial">
+        <StyledLink to="/companyaudit-trial">
           {" "}
           <CgFileDocument class="link-icon" /> Audit Trial{" "}
+        </StyledLink>
+        <StyledLink to="/company/manage-admin">
+          <GrUserManager class="link-icon" /> Manage Admin
         </StyledLink>
       </MobileLinks>
     </Container>
@@ -127,7 +134,6 @@ const Links = styled.div`
     font-weight: 600;
   }
 
-
   @media screen and (max-width: 680px) {
     margin: 0 auto;
     display: none;
@@ -148,7 +154,7 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: var(--lightOrange);
   margin-top: 3rem;
-  width: 100%;
+  /* width: 100%; */
 
   .link-icon {
     margin-right: 1rem;
@@ -158,6 +164,5 @@ const StyledLink = styled(NavLink)`
     margin-left: -0.5rem;
   }
 `;
-
 
 export default Sidebar;
