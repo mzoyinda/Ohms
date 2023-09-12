@@ -49,6 +49,7 @@ const Container = styled.main`
         margin-bottom: 0.5em;
         font-size: 3rem;
         letter-spacing: -2px;
+        font-weight: 700;
     }
 
     p {
