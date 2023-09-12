@@ -9,7 +9,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 // get token generated on login
-const user = cookies.get("companyName")
+const user = cookies.get("USER")
 
 
 
@@ -32,7 +32,7 @@ const Sidebar = () => {
     <Container>
       <Menu>
         <StandageLogo>
-          <h1>Company Name </h1>
+          <h1>{user} </h1>
         </StandageLogo>
         <MobileMenu onClick={() => setDisplay(!display)} />
       </Menu>
@@ -122,6 +122,7 @@ const StandageLogo = styled.div`
     font-weight: 700;
     line-height: 28px;
     text-align: center;
+    text-transform: uppercase !important;
   }
   :hover {
     cursor: pointer;

@@ -41,10 +41,11 @@ const Login = () => {
         .then((result) => {
           setLoading(false);
           // set the cookie
+          console.log(result)
           cookies.set("TOKEN", result.data.token, {
             path: "/",
           });
-          cookies.set("USER", result.data.user, {
+          cookies.set("USER", result.data.companyName, {
             path: "/",
           });
           
