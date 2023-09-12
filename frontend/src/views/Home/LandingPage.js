@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ohm from '../../assets/pillow-sofa-decoration.jpg';
+import ohm from '../../assets/Spreadsheets-amico.svg';
 
 const LandingPage = () => {
     return (
@@ -47,6 +47,8 @@ const Container = styled.main`
 
     h1 {
         margin-bottom: 0.5em;
+        font-size: 3rem;
+        letter-spacing: -2px;
     }
 
     p {
