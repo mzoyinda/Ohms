@@ -7,13 +7,17 @@ import {
 } from "react-icons/ai";
 import { FaFacebookSquare } from "react-icons/fa";
 import styled from "styled-components";
+import brand from "../../assets/brand.png";
+
+
 
 const Footer = () => {
   return (
     <Container>
       <div className="flexbox">
       <a href="/" className="brand">
-        <h2>Ohms</h2>
+        {/* <h2>Ohms</h2> */}
+        <img src={brand} alt="ohms" />
         </a>
         <div className="links">
           <div className="section">
@@ -77,6 +81,10 @@ const Container = styled.footer`
       line-height: 28px;
       text-align: center;
     }
+    img {
+        width: 105px;
+        object-fit: cover;
+      }
     :hover {
       cursor: pointer;
       color: #ED8850 !important;

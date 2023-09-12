@@ -35,7 +35,7 @@ const SignUp = () => {
     // set configurations
     const configuration = {
       method: "post",
-      url: "http://localhost:5001/admin/register",
+      url: "https://ohms.onrender.com/admin/register",
       data: values,
     };
     console.log(values)

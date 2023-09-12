@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-// import brand from "../../assets/brand.png";
+import brand from "../../assets/brand.png";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
@@ -28,7 +28,8 @@ const Navbar = () => {
     <Container>
       <div className="desktop">
         <a href="/" className="brand">
-          <h1>Ohms</h1>
+          {/* <h1>Ohms</h1> */}
+          <img src={brand} alt="ohms" />
         </a>
         <div>
           <nav className="nav__links">
@@ -122,7 +123,7 @@ const Container = styled.div`
         color: #ed8850 !important;
       }
       img {
-        width: 96px;
+        width: 105px;
         object-fit: cover;
       }
     }

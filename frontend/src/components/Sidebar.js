@@ -5,6 +5,13 @@ import { GrUserManager } from "react-icons/gr";
 import { BsGrid } from "react-icons/bs";
 import { TbUsers } from "react-icons/tb";
 import { NavLink, Link, useLocation } from "react-router-dom";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
+// get token generated on login
+const user = cookies.get("companyName")
+
+
 
 const Sidebar = () => {
   const [display, setDisplay] = useState(true);
@@ -25,7 +32,7 @@ const Sidebar = () => {
     <Container>
       <Menu>
         <StandageLogo>
-          <h1>Ohms</h1>
+          <h1>Company Name </h1>
         </StandageLogo>
         <MobileMenu onClick={() => setDisplay(!display)} />
       </Menu>

@@ -32,7 +32,7 @@ const Login = () => {
             // set configurations
         const configuration = {
           method: "post",
-          url: "http://localhost:5001/login",
+          url: "https://ohms.onrender.com/login",
           data: values,
         };
 
@@ -42,6 +42,9 @@ const Login = () => {
           setLoading(false);
           // set the cookie
           cookies.set("TOKEN", result.data.token, {
+            path: "/",
+          });
+          cookies.set("USER", result.data.user, {
             path: "/",
           });
           
